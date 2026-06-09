@@ -18,6 +18,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <aletheia.version>0.10.1</aletheia.version>
+        <athena.version>0.6.3</athena.version>
+        <aegis.version>0.1.1</aegis.version>
+
         <spring.boot.version>3.5.14</spring.boot.version>
         <springdoc.openapi.version>2.8.17</springdoc.openapi.version>
         <picocli.version>4.7.7</picocli.version>
@@ -50,6 +54,21 @@
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.github.de-gupta</groupId>
+                <artifactId>aletheia</artifactId>
+                <version>${aletheia.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.de-gupta</groupId>
+                <artifactId>athena</artifactId>
+                <version>${athena.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.de-gupta</groupId>
+                <artifactId>aegis</artifactId>
+                <version>${aegis.version}</version>
             </dependency>
             <dependency>
                 <groupId>info.picocli</groupId>
