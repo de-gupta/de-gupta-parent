@@ -27,8 +27,8 @@
         <picocli.version>4.7.7</picocli.version>
         <jmh.version>1.37</jmh.version>
 
-        <junit.jupiter.version>5.14.4</junit.jupiter.version>
-        <assertj.core.version>3.27.3</assertj.core.version>
+        <junit.jupiter.version>6.1.0</junit.jupiter.version>
+        <assertj.core.version>3.27.7</assertj.core.version>
 
         <maven.compiler.plugin.version>3.15.0</maven.compiler.plugin.version>
         <maven.surefire.failsafe.plugin.version>3.5.6</maven.surefire.failsafe.plugin.version>
@@ -70,6 +70,19 @@
             </dependency>
 
             <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj.core.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
@@ -98,17 +111,6 @@
                 <groupId>org.openjdk.jmh</groupId>
                 <artifactId>jmh-generator-annprocess</artifactId>
                 <version>${jmh.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${junit.jupiter.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.assertj</groupId>
-                <artifactId>assertj-core</artifactId>
-                <version>${assertj.core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
