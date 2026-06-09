@@ -32,6 +32,8 @@
         <maven.release.plugin.version>3.3.1</maven.release.plugin.version>
         <maven.enforcer.plugin.version>3.6.3</maven.enforcer.plugin.version>
 
+        <argLine></argLine>
+
         <jacoco.plugin.version>0.8.14</jacoco.plugin.version>
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
@@ -172,6 +174,82 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>fast-it</id>
+            <properties>
+                <it.tag.expression>fast</it.tag.expression>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <properties>
+                                <configurationParameters>junit.jupiter.tags.include = ${it.tag.expression}</configurationParameters>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>medium-it</id>
+            <properties>
+                <it.tag.expression>fast | medium</it.tag.expression>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <properties>
+                                <configurationParameters>junit.jupiter.tags.include = ${it.tag.expression}</configurationParameters>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>slow-it</id>
+            <properties>
+                <it.tag.expression>fast | medium | slow</it.tag.expression>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <properties>
+                                <configurationParameters>junit.jupiter.tags.include = ${it.tag.expression}</configurationParameters>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>full-it</id>
+            <properties>
+                <it.tag.expression>fast | medium | slow</it.tag.expression>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <properties>
+                                <configurationParameters>junit.jupiter.tags.include = ${it.tag.expression}</configurationParameters>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
         <profile>
             <id>coverage</id>
             <build>
