@@ -4,7 +4,7 @@
 
     <groupId>io.github.de-gupta</groupId>
     <artifactId>de-gupta-parent</artifactId>
-    <version>0.2.5-SNAPSHOT</version>
+    <version>0.3.0</version>
     <packaging>pom</packaging>
 
     <name>de-gupta-parent</name>
@@ -48,7 +48,7 @@
         <connection>scm:git:ssh://git@github.com/de-gupta/${project.artifactId}.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/de-gupta/${project.artifactId}.git</developerConnection>
         <url>https://github.com/de-gupta/${project.artifactId}.git</url>
-        <tag>HEAD</tag>
+        <tag>v0.3.0</tag>
     </scm>
 
     <dependencyManagement>
