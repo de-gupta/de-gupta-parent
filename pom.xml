@@ -45,9 +45,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com/de-gupta/${project.artifactId}.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/de-gupta/${project.artifactId}.git</developerConnection>
-        <url>https://github.com/de-gupta/${project.artifactId}.git</url>
+        <connection>scm:git:ssh://git@github.com/de-gupta/de-gupta-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/de-gupta/de-gupta-parent.git</developerConnection>
+        <url>https://github.com/de-gupta/de-gupta-parent</url>
         <tag>HEAD</tag>
     </scm>
 
