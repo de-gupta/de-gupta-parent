@@ -37,6 +37,10 @@
 
         <argLine />
 
+        <project.build.outputTimestamp>1970-01-01T00:00:00Z</project.build.outputTimestamp>
+
+        <maven.cyclonedx.plugin.version>2.9.1</maven.cyclonedx.plugin.version>
+        <maven.versions.plugin.version>2.21.0</maven.versions.plugin.version>
         <maven.jacoco.plugin.version>0.8.14</maven.jacoco.plugin.version>
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
@@ -121,6 +125,11 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>${spring.boot.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>${maven.versions.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -365,6 +374,19 @@
                         <configuration>
                             <doclint>none</doclint>
                         </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.cyclonedx</groupId>
+                        <artifactId>cyclonedx-maven-plugin</artifactId>
+                        <version>${maven.cyclonedx.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>makeBom</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.sonatype.central</groupId>
