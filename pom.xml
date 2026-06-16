@@ -55,6 +55,9 @@
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
         <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
         <maven.central.publishing.plugin.version>0.10.0</maven.central.publishing.plugin.version>
+
+        <nexus.host>localhost</nexus.host>
+        <nexus.port>8081</nexus.port>
     </properties>
 
     <scm>
@@ -485,13 +488,6 @@
         </profile>
     </profiles>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>central</id>
-            <url>https://central.sonatype.com/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <licenses>
         <license>
             <name>GPL-3.0 License</name>
@@ -505,5 +501,31 @@
             <email>221553154+de-gupta@users.noreply.github.com</email>
         </developer>
     </developers>
+
+    <repositories>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://${nexus.host}:${nexus.port}/repository/maven-releases/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>nexus-snapshots</id>
+            <url>http://${nexus.host}:${nexus.port}/repository/maven-snapshots/</url>
+            <releases><enabled>false</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>http://${nexus.host}:${nexus.port}/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>http://${nexus.host}:${nexus.port}/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
