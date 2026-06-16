@@ -19,7 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <aletheia.version>0.10.7</aletheia.version>
-        <athena.version>0.10.2</athena.version>
+        <athena.version>0.10.3</athena.version>
         <aegis.version>0.1.1</aegis.version>
 
         <spring.boot.version>3.5.14</spring.boot.version>
@@ -29,6 +29,7 @@
 
         <junit.jupiter.version>6.1.0</junit.jupiter.version>
         <assertj.core.version>3.27.7</assertj.core.version>
+        <net.jqwik.version>1.10.1</net.jqwik.version>
 
         <maven.compiler.plugin.version>3.15.0</maven.compiler.plugin.version>
         <maven.surefire.failsafe.plugin.version>3.5.6</maven.surefire.failsafe.plugin.version>
@@ -48,7 +49,7 @@
         <maven.pitest.junit5.plugin.version>1.2.3</maven.pitest.junit5.plugin.version>
 
         <maven.jacoco.plugin.version>0.8.14</maven.jacoco.plugin.version>
-        <maven.jacoco.delegate.filter.plugin.version>0.0.1-SNAPSHOT</maven.jacoco.delegate.filter.plugin.version>
+        <maven.jacoco.delegate.filter.plugin.version>0.0.1</maven.jacoco.delegate.filter.plugin.version>
 
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
@@ -91,6 +92,12 @@
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.jqwik</groupId>
+                <artifactId>jqwik</artifactId>
+                <version>${net.jqwik.version}</version>
             </dependency>
 
             <dependency>
