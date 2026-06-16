@@ -56,6 +56,7 @@
         <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
 
 
+        <nexus.protocol>http</nexus.protocol>
         <nexus.host>localhost</nexus.host>
         <nexus.port>8081</nexus.port>
     </properties>
@@ -495,13 +496,13 @@
     <repositories>
         <repository>
             <id>nexus-releases</id>
-            <url>http://${nexus.host}:${nexus.port}/repository/maven-releases/</url>
+            <url>${nexus.protocol}://${nexus.host}:${nexus.port}/repository/maven-releases/</url>
             <releases><enabled>true</enabled></releases>
             <snapshots><enabled>false</enabled></snapshots>
         </repository>
         <repository>
             <id>nexus-snapshots</id>
-            <url>http://${nexus.host}:${nexus.port}/repository/maven-snapshots/</url>
+            <url>${nexus.protocol}://${nexus.host}:${nexus.port}/repository/maven-snapshots/</url>
             <releases><enabled>false</enabled></releases>
             <snapshots><enabled>true</enabled></snapshots>
         </repository>
@@ -510,11 +511,11 @@
     <distributionManagement>
         <repository>
             <id>nexus-releases</id>
-            <url>http://${nexus.host}:${nexus.port}/repository/maven-releases/</url>
+            <url>${nexus.protocol}://${nexus.host}:${nexus.port}/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>nexus-snapshots</id>
-            <url>http://${nexus.host}:${nexus.port}/repository/maven-snapshots/</url>
+            <url>${nexus.protocol}://${nexus.host}:${nexus.port}/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
