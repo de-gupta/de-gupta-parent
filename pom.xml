@@ -54,7 +54,7 @@
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
         <maven.javadoc.plugin.version>3.12.0</maven.javadoc.plugin.version>
-        <maven.central.publishing.plugin.version>0.10.0</maven.central.publishing.plugin.version>
+
 
         <nexus.host>localhost</nexus.host>
         <nexus.port>8081</nexus.port>
@@ -415,16 +415,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.central</groupId>
-                        <artifactId>central-publishing-maven-plugin</artifactId>
-                        <version>${maven.central.publishing.plugin.version}</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <publishingServerId>central</publishingServerId>
-                            <autoPublish>true</autoPublish>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
