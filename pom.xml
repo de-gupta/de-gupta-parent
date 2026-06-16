@@ -48,6 +48,7 @@
         <maven.pitest.junit5.plugin.version>1.2.3</maven.pitest.junit5.plugin.version>
 
         <maven.jacoco.plugin.version>0.8.14</maven.jacoco.plugin.version>
+        <maven.jacoco.delegate.filter.plugin.version>0.0.1-SNAPSHOT</maven.jacoco.delegate.filter.plugin.version>
 
         <maven.gpg.plugin.version>3.2.8</maven.gpg.plugin.version>
         <maven.source.plugin.version>3.4.0</maven.source.plugin.version>
@@ -309,6 +310,16 @@
                                 <goals>
                                     <goal>report</goal>
                                 </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>io.github.de-gupta</groupId>
+                        <artifactId>tool.jacoco.delegate-filter-maven-plugin</artifactId>
+                        <version>${maven.jacoco.delegate.filter.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <goals><goal>inject-generated</goal></goals>
                             </execution>
                         </executions>
                     </plugin>
