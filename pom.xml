@@ -454,6 +454,13 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <timestampedReports>false</timestampedReports>
+                            <outputFormats>
+                                <outputFormat>HTML</outputFormat>
+                                <outputFormat>XML</outputFormat>
+                            </outputFormats>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
