@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <aletheia.version>0.10.9</aletheia.version>
+        <aletheia.version>0.10.10</aletheia.version>
         <athena.version>0.10.6</athena.version>
         <aegis.version>0.1.1</aegis.version>
 
