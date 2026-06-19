@@ -423,6 +423,7 @@
         <profile>
             <id>local-release</id>
             <properties>
+                <skipTests>true</skipTests>
                 <gpg.skip>true</gpg.skip>
                 <maven.javadoc.skip>true</maven.javadoc.skip>
             </properties>
