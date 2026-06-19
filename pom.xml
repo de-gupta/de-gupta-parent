@@ -479,6 +479,7 @@
                             <outputFormats>
                                 <outputFormat>HTML</outputFormat>
                                 <outputFormat>XML</outputFormat>
+                                <outputFormat>CSV</outputFormat>
                             </outputFormats>
                         </configuration>
                     </plugin>
