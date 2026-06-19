@@ -421,6 +421,13 @@
             </build>
         </profile>
         <profile>
+            <id>local-release</id>
+            <properties>
+                <gpg.skip>true</gpg.skip>
+                <maven.javadoc.skip>true</maven.javadoc.skip>
+            </properties>
+        </profile>
+        <profile>
             <id>owasp</id>
             <build>
                 <plugins>
