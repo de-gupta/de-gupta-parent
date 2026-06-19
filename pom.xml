@@ -435,6 +435,7 @@
                         <version>${maven.release.plugin.version}</version>
                         <configuration>
                             <localCheckout>true</localCheckout>
+                            <pushChanges>false</pushChanges>
                         </configuration>
                     </plugin>
                 </plugins>
