@@ -4,7 +4,7 @@
 
     <groupId>io.github.de-gupta</groupId>
     <artifactId>de-gupta-parent</artifactId>
-    <version>0.8.3</version>
+    <version>0.8.4-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>de-gupta-parent</name>
@@ -38,7 +38,7 @@
 
         <argLine />
 
-        <project.build.outputTimestamp>2026-06-19T19:35:05Z</project.build.outputTimestamp>
+        <project.build.outputTimestamp>2026-06-19T19:35:18Z</project.build.outputTimestamp>
 
         <maven.cyclonedx.plugin.version>2.9.1</maven.cyclonedx.plugin.version>
         <maven.versions.plugin.version>2.21.0</maven.versions.plugin.version>
@@ -64,7 +64,7 @@
     <scm>
         <developerConnection>scm:git:ssh://git@github.com/de-gupta/${project.artifactId}.git</developerConnection>
         <url>https://github.com/de-gupta/${project.artifactId}</url>
-        <tag>v0.8.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>
