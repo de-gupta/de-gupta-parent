@@ -35,8 +35,17 @@
         <maven.surefire.failsafe.plugin.version>3.5.6</maven.surefire.failsafe.plugin.version>
         <maven.release.plugin.version>3.3.1</maven.release.plugin.version>
         <maven.enforcer.plugin.version>3.6.3</maven.enforcer.plugin.version>
+        <maven.antrun.plugin.version>3.2.0</maven.antrun.plugin.version>
 
         <argLine />
+
+        <test.jvm.args />
+
+        <jfr.filename>${project.build.directory}/recording.jfr</jfr.filename>
+        <jfr.settingsFile>${project.build.directory}/jfr/de-gupta.jfc</jfr.settingsFile>
+        <jfr.delay>0s</jfr.delay>
+        <jfr.stackdepth>256</jfr.stackdepth>
+        <jfr.methodFilter>de.gupta.*</jfr.methodFilter>
 
         <project.build.outputTimestamp>2026-06-22T06:38:49Z</project.build.outputTimestamp>
 
@@ -163,7 +172,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.failsafe.plugin.version}</version>
                 <configuration>
-                    <argLine>@{argLine}</argLine>
+                    <argLine>@{argLine} ${test.jvm.args}</argLine>
                     <excludes>
                         <exclude>**/*ITCase.java</exclude>
                     </excludes>
@@ -180,7 +189,7 @@
                             <goal>verify</goal>
                         </goals>
                         <configuration>
-                            <argLine>@{argLine}</argLine>
+                            <argLine>@{argLine} ${test.jvm.args}</argLine>
                             <includes>
                                 <include>**/*ITCase.java</include>
                             </includes>
@@ -444,8 +453,57 @@
         <profile>
             <id>jfr</id>
             <properties>
-                <argLine>-XX:StartFlightRecording=filename=target/recording.jfr,dumponexit=true,settings=profile</argLine>
+                <test.jvm.args>${test.jvm.args} -XX:StartFlightRecording=filename=${jfr.filename},dumponexit=true,settings=${jfr.settingsFile},delay=${jfr.delay},stackdepth=${jfr.stackdepth}</test.jvm.args>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven.antrun.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>write-jfr-settings</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <mkdir dir="${project.build.directory}/jfr" />
+                                        <echo file="${jfr.settingsFile}" append="false"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+                                            <configuration label="de-gupta" version="2.0">
+
+                                              <event name="jdk.ExecutionSample">
+                                                <setting name="enabled">true</setting>
+                                                <setting name="period">10 ms</setting>
+                                              </event>
+
+                                              <event name="jdk.NativeMethodSample">
+                                                <setting name="enabled">true</setting>
+                                                <setting name="period">20 ms</setting>
+                                              </event>
+
+                                              <event name="jdk.MethodTiming">
+                                                <setting name="enabled">true</setting>
+                                                <setting name="filter">${jfr.methodFilter}</setting>
+                                                <setting name="period">endChunk</setting>
+                                              </event>
+
+                                              <event name="jdk.MethodTrace">
+                                                <setting name="enabled">false</setting>
+                                              </event>
+
+                                            </configuration>
+                                            ]]>
+                                        </echo>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>owasp</id>
