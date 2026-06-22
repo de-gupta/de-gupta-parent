@@ -442,6 +442,12 @@
             </build>
         </profile>
         <profile>
+            <id>jfr</id>
+            <properties>
+                <argLine>-XX:StartFlightRecording=filename=target/recording.jfr,dumponexit=true,settings=profile</argLine>
+            </properties>
+        </profile>
+        <profile>
             <id>owasp</id>
             <build>
                 <plugins>
