@@ -39,8 +39,6 @@
 
         <test.jvm.args />
 
-        <jfr.filename>${project.build.directory}/recording.jfr</jfr.filename>
-        <jfr.delay>0s</jfr.delay>
         <jfr.stackdepth>256</jfr.stackdepth>
 
         <project.build.outputTimestamp>2026-06-22T10:44:02Z</project.build.outputTimestamp>
@@ -449,7 +447,7 @@
         <profile>
             <id>jfr</id>
             <properties>
-                <test.jvm.args>-XX:StartFlightRecording=filename=${jfr.filename},dumponexit=true,settings=profile,delay=${jfr.delay},stackdepth=${jfr.stackdepth}</test.jvm.args>
+                <test.jvm.args>-XX:FlightRecorderOptions=stackdepth=${jfr.stackdepth} -XX:StartFlightRecording=filename=target/,dumponexit=true,settings=profile</test.jvm.args>
             </properties>
         </profile>
         <profile>
