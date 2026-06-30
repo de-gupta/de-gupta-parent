@@ -19,7 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <aletheia.version>0.10.24</aletheia.version>
-        <athena.version>0.19.1</athena.version>
+        <athena.version>0.19.2</athena.version>
         <aegis.version>0.2.0</aegis.version>
 
         <spring.boot.version>3.5.14</spring.boot.version>
@@ -551,6 +551,7 @@
     </distributionManagement>
 
 </project>
+
 
 
 
